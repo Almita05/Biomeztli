@@ -29,6 +29,10 @@ public class MainActivity2 extends AppCompatActivity {
 
         mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
+
+
+
+
     }
 
     @Override

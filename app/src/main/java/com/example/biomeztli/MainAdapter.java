@@ -1,5 +1,6 @@
 package com.example.biomeztli;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +31,17 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                 .circleCrop()
                 .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img);
-    }
 
+        // Agrega el clic a la imagen
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Aquí puedes iniciar la nueva actividad
+                Intent intent = new Intent(view.getContext(), MainActivity3.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+    }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
