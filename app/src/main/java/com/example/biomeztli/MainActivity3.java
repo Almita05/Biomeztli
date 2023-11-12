@@ -1,6 +1,9 @@
 package com.example.biomeztli;
+
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
@@ -13,13 +16,19 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         ImageView imageView = findViewById(R.id.img1); // Reemplaza con el ID real de tu ImageView
+        TextView textView = findViewById(R.id.nombrePlanta); // Reemplaza con el ID real de tu TextView
 
-        // Recupera la URL de la imagen de la actividad anterior (puedes pasarla a través de Intent)
+        // Pasar la imagen y el nombre a través de un extra de un intent
         String imageUrl = getIntent().getStringExtra("IMAGE_URL");
+        String nombre = getIntent().getStringExtra("NOMBRE");
 
-        // Utiliza Glide para cargar la imagen en el ImageView
+        // Cargamos la imagen en un ImageView
         Glide.with(this)
                 .load(imageUrl)
                 .into(imageView);
+
+        // Asignamos el nombre a un TextView
+        textView.setText(nombre);
     }
 }
+

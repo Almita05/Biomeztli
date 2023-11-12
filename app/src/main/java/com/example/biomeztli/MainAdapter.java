@@ -1,5 +1,6 @@
 package com.example.biomeztli;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -26,21 +27,22 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
     protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull MainModel model) {
         holder.nombre.setText(model.getNombre());
 
-        // Utiliza Glide para cargar la imagen desde la base de datos en lugar de la URL
+        // Glide para cargar la imagen desde la base de datos en lugar de la URL
         Glide.with(holder.img.getContext())
-                .load(Uri.parse(model.getImagen()))  // Suponiendo que el campo "imagen" contiene la URL de la imagen en la base de datos
+                .load(Uri.parse(model.getImagen()))  // URL de la imagen desde la base de datos
                 .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
                 .circleCrop()
                 .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img);
 
-        // Agrega el clic a la imagen
+        // Onclick en la imagen para ir a la actividad 3
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Aquí puedes iniciar la nueva actividad
+                // Aquí se va a  iniciar la nueva actividad
                 Intent intent = new Intent(view.getContext(), MainActivity3.class);
-                intent.putExtra("IMAGE_URL", model.getImagen());  // Pasar la URL de la imagen como extra
+                intent.putExtra("IMAGE_URL", model.getImagen());  // Pasar la URL de la imagen como extra, estoo es importante
+                intent.putExtra("NOMBRE", model.getNombre());  // Pasar la URL de la imagen como extra, estoo es importante
                 view.getContext().startActivity(intent);
             }
         });
