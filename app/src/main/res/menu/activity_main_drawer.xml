@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/inicio"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_favoritos"
+            android:icon="@drawable/favoritos"
+            android:title="Favoritos" />
+        <item
+            android:id="@+id/nav_tips"
+            android:icon="@drawable/tips"
+            android:title="Tips" />
+        <item
+            android:id="@+id/nav_enfermedades"
+            android:icon="@drawable/enfermedad"
+            android:title="Enfermedades" />
+        <item
+            android:id="@+id/nav_relajacion"
+            android:icon="@drawable/relajacion"
+            android:title="Relájate" />
+    </group>
+</menu>
