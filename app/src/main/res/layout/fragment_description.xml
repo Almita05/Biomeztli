@@ -9,6 +9,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Descripcion" />
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Descripción"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textSize="34sp"
+        android:typeface="normal" />
 
 </FrameLayout>

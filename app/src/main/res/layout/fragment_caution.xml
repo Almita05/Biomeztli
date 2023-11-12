@@ -10,6 +10,11 @@
         android:id="@+id/cautionFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="preaucion y contraindicaciones" />
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Preaución y contraindicaciones"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:typeface="normal" />
 
 </FrameLayout>
