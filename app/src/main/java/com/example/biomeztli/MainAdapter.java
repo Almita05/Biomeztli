@@ -1,6 +1,7 @@
 package com.example.biomeztli;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,9 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
     protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull MainModel model) {
         holder.nombre.setText(model.getNombre());
 
+        // Utiliza Glide para cargar la imagen desde la base de datos en lugar de la URL
         Glide.with(holder.img.getContext())
-                .load(model.getImagen())
+                .load(Uri.parse(model.getImagen()))  // Suponiendo que el campo "imagen" contiene la URL de la imagen en la base de datos
                 .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
                 .circleCrop()
                 .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark_normal)
@@ -38,10 +40,12 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
             public void onClick(View view) {
                 // Aquí puedes iniciar la nueva actividad
                 Intent intent = new Intent(view.getContext(), MainActivity3.class);
+                intent.putExtra("IMAGE_URL", model.getImagen());  // Pasar la URL de la imagen como extra
                 view.getContext().startActivity(intent);
             }
         });
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -56,7 +60,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.img1);
-            nombre = itemView.findViewById(R.id.nameText); // Corregido el nombre de la variable
+            nombre = itemView.findViewById(R.id.nameText);
         }
     }
 }

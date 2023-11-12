@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
     android:orientation="vertical"
     tools:context=".MainActivity2">
 
@@ -24,23 +23,19 @@
 
     <LinearLayout
         android:layout_width="400dp"
-        android:layout_height="66dp"
+        android:layout_height="152dp"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="222dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/borde_redondo_input"
-            android:ems="10"
-            android:inputType="text"
-            android:paddingLeft="32dp"
-            android:text="Buscar"
-            android:textColor="#FFFFFF" />
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img1"
+            android:layout_width="107dp"
+            android:layout_height="115dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="130dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,7 +50,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="20dp"
-            android:background="@color/fondo"
+            android:background="@null"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/descripcion" />
 
@@ -64,7 +59,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="20dp"
-            android:background="@color/fondo"
+            android:background="@null"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/propiedades" />
 
@@ -73,7 +68,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="20dp"
-            android:background="@color/fondo"
+            android:background="@null"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/uso" />
 
@@ -82,8 +77,9 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="20dp"
-            android:background="@color/fondo"
+            android:background="@null"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/precaucion" />
     </LinearLayout>
+
 </LinearLayout>
