@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vistaDetallada"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,18 +18,18 @@
             android:id="@+id/imageButton"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:background="@null"
-            android:scaleType="centerInside"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
+            android:background="@null"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/bars_solid" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="130dp"
             android:layout_height="100dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/logo" />
     </LinearLayout>
@@ -62,54 +63,67 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="79dp"
         android:layout_marginTop="20dp"
-        android:background="@color/menu"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:background="@color/menu">
 
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
-            android:background="@null"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/descripcion" />
 
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
-            android:background="@null"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/propiedades" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
-            android:background="@null"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/uso" />
+            <ImageButton
+                android:id="@+id/descriptionB"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/descripcion" />
 
-        <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="20dp"
-            android:background="@null"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/precaucion" />
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/propertiesB"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/propiedades" />
+
+            <ImageButton
+                android:id="@+id/usoB"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/uso" />
+
+            <ImageButton
+                android:id="@+id/cautionB"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+                android:onClick="irAPropiedades"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/precaucion" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:background="@color/fondo"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Contenedor de fragments -->
+
+    </FrameLayout>
 </LinearLayout>
