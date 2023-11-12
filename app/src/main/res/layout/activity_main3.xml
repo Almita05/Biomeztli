@@ -96,7 +96,7 @@
                 app:srcCompat="@drawable/propiedades" />
 
             <ImageButton
-                android:id="@+id/usoB"
+                android:id="@+id/useB"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="20dp"

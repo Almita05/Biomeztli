@@ -17,6 +17,19 @@
         android:label="fragment_properties"
         tools:layout="@layout/fragment_properties" />
 
+    <fragment
+        android:id="@+id/useFragment"
+        android:name="com.example.biomeztli.UseFragment"
+        android:label="fragment_use"
+        tools:layout="@layout/fragment_use" />
+
+    <fragment
+        android:id="@+id/cautionFragment"
+        android:name="com.example.biomeztli.CautionFragment"
+        android:label="fragment_caution"
+        tools:layout="@layout/fragment_caution" />
+
+    <!-- Acciones de navegación -->
     <action
         android:id="@+id/action_descriptionFragment_to_propertiesFragment"
         app:destination="@id/propertiesFragment" />
@@ -24,4 +37,17 @@
     <action
         android:id="@+id/action_propertiesFragment_to_descriptionFragment"
         app:destination="@id/descriptionFragment" />
+
+    <action
+        android:id="@+id/action_propertiesFragment_to_useFragment"
+        app:destination="@id/useFragment" />
+
+    <action
+        android:id="@+id/action_useFragment_to_cautionFragment"
+        app:destination="@id/cautionFragment" />
+
+    <action
+        android:id="@+id/action_cautionFragment_to_descriptionFragment"
+        app:destination="@id/descriptionFragment" />
+
 </navigation>

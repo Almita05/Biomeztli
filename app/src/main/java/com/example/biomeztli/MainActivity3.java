@@ -9,8 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bumptech.glide.Glide;
 import com.example.biomeztli.DescriptionFragment;
 import com.example.biomeztli.PropertiesFragment;
+import com.example.biomeztli.UseFragment;
+import com.example.biomeztli.CautionFragment;
 import com.example.biomeztli.R;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ImageButton;
@@ -50,9 +51,13 @@ public class MainActivity3 extends AppCompatActivity {
     private void configureButtonListeners() {
         ImageButton buttonDescription = findViewById(R.id.descriptionB);
         ImageButton buttonProperties = findViewById(R.id.propertiesB);
+        ImageButton buttonUse = findViewById(R.id.useB);
+        ImageButton buttonCaution = findViewById(R.id.cautionB);
 
         buttonDescription.setOnClickListener(v -> switchFragment(new DescriptionFragment()));
         buttonProperties.setOnClickListener(v -> switchFragment(new PropertiesFragment()));
+        buttonUse.setOnClickListener(v -> switchFragment(new UseFragment()));
+        buttonCaution.setOnClickListener(v -> switchFragment(new CautionFragment()));
 
         // Muestra el fragmento de descripción por defecto al iniciar la actividad
         switchFragment(new DescriptionFragment());
