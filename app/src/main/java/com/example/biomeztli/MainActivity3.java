@@ -2,7 +2,6 @@ package com.example.biomeztli;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -46,7 +45,7 @@ public class MainActivity3 extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
 
         // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        // menu should be considered as top-level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_enfermedades)
                 .setOpenableLayout(drawer)
@@ -56,15 +55,10 @@ public class MainActivity3 extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        // Inicializa la Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // Obtén referencias a las vistas
         ImageView imageView = findViewById(R.id.img1);
         TextView textView = findViewById(R.id.nombrePlanta);
 
-        // Obtén la información de la imagen y el nombre a través de un extra de Intent
+        // Obtengo la información de la imagen y el nombre a través de un EXTRA de Intent
         String imageUrl = getIntent().getStringExtra("IMAGE_URL");
         String nombre = getIntent().getStringExtra("NOMBRE");
 
@@ -73,16 +67,18 @@ public class MainActivity3 extends AppCompatActivity {
                 .load(imageUrl)
                 .into(imageView);
 
-        // Asigna el nombre al TextView
+        // Asigno el nombre al TextView
         textView.setText(nombre);
 
-        // Configura los listeners para cambiar entre fragments
+        // Configuro los listeners para cambiar entre fragments
         configureButtonListeners();
+
+        // Muestra el fragmento de descripción por defecto al iniciar la actividad
+        switchFragment(new DescriptionFragment());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity4, menu);
         return true;
     }
@@ -94,7 +90,16 @@ public class MainActivity3 extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    // Método para configurar listeners de los botones
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private void configureButtonListeners() {
         ImageButton buttonDescription = findViewById(R.id.descriptionB);
         ImageButton buttonProperties = findViewById(R.id.propertiesB);
@@ -105,20 +110,16 @@ public class MainActivity3 extends AppCompatActivity {
         buttonProperties.setOnClickListener(v -> switchFragment(new PropertiesFragment()));
         buttonUse.setOnClickListener(v -> switchFragment(new UseFragment()));
         buttonCaution.setOnClickListener(v -> switchFragment(new CautionFragment()));
-
-        // Muestra el fragmento de descripción por defecto al iniciar la actividad
-        switchFragment(new DescriptionFragment());
     }
 
-    // Método para cambiar entre fragmentos
     private void switchFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenedor con el nuevo fragmento
-        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
 
-        // Añade la transacción al back stack
+        // Añade la transacción al back stack que nos permite eliminar lo anterior
         fragmentTransaction.addToBackStack(null);
 
         // Commit de la transacción

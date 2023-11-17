@@ -12,6 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="180dp"
             android:background="@color/target1"
+            android:layout_gravity="center"
             android:padding="15dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -31,10 +32,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="120dp"
-                    android:textAlignment="center"
                     android:gravity="center"
-                    android:layout_marginLeft="140dp"
                     android:text="Ejemplo"
+                    android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
