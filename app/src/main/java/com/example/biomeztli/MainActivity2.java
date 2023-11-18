@@ -42,4 +42,6 @@ public class MainActivity2 extends AppCompatActivity {
         super.onStop();
         mainAdapter.stopListening();
     }
+
+
 }

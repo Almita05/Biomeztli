@@ -1,5 +1,6 @@
 package com.example.biomeztli;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -90,14 +91,11 @@ public class MainActivity3 extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
-        } else {
-            super.onBackPressed();
-        }
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+        finish();
     }
 
     private void configureButtonListeners() {
@@ -115,13 +113,10 @@ public class MainActivity3 extends AppCompatActivity {
     private void switchFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         // Reemplaza el contenedor con el nuevo fragmento
         fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
-
         // Añade la transacción al back stack que nos permite eliminar lo anterior
         fragmentTransaction.addToBackStack(null);
-
         // Commit de la transacción
         fragmentTransaction.commit();
     }
