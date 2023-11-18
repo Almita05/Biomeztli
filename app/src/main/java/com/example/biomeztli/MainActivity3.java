@@ -1,5 +1,6 @@
 package com.example.biomeztli;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -33,7 +34,7 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarMain.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -93,12 +94,11 @@ public class MainActivity3 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
-        } else {
-            super.onBackPressed();
-        }
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+        finish();
     }
+
 
     private void configureButtonListeners() {
         ImageButton buttonDescription = findViewById(R.id.descriptionB);
