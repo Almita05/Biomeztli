@@ -48,7 +48,7 @@ public class MainActivity3 extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top-level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_enfermedades)
+                R.id.nav_home, R.id.nav_favoritos, R.id.nav_enfermedades)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -76,12 +76,6 @@ public class MainActivity3 extends AppCompatActivity {
 
         // Muestra el fragmento de descripción por defecto al iniciar la actividad
         switchFragment(new DescriptionFragment());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_activity4, menu);
-        return true;
     }
 
     @Override
