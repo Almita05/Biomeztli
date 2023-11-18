@@ -33,8 +33,8 @@ public class MainActivity3 extends AppCompatActivity {
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.toolbar.setOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(binding.appBarMain3.toolbar);
+        binding.appBarMain3.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -48,11 +48,11 @@ public class MainActivity3 extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top-level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_favoritos, R.id.nav_enfermedades)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main3);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
@@ -80,7 +80,7 @@ public class MainActivity3 extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main3);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
@@ -111,7 +111,7 @@ public class MainActivity3 extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenedor con el nuevo fragmento
-        fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_main3, fragment);
 
         // Añade la transacción al back stack que nos permite eliminar lo anterior
         fragmentTransaction.addToBackStack(null);
